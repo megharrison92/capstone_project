@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, Router } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import GetFortune from './components/GetFortune';
+import Game from './components/Game';
+import History from './components/History';
+import AccountInfo from './components/AccountInfo';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <NavBar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/get_fortune" element={<GetFortune />} />
+            <Route exact path="/game" element={<Game />} />
+            <Route exact path="/history" element={<History />} />
+            <Route exact path="/account_info" element={<AccountInfo />} />
+          </Routes>
+      </div>
   );
 }
 
