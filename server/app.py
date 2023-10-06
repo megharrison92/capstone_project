@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 # Local imports
 from config import app, api, db
 # Add your model imports
-from models import User, Prediction, Game, Comment
+#from models import User, Prediction, Game, Comment
 
 @app.route('/')
 def hello():

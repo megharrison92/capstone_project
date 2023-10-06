@@ -1,11 +1,12 @@
+// create login form and register from components for this page
+//the login/register will flip to the other side depending if you are logged in
 
-
-function Home({message}) {
+function Home() {
     return (
         <div>
-            <h1>FIRSTLY THIS IS A TEMPLATE, COPY BEFORE YOU START WORKING</h1>
-            <h2>Also make sure to run git init, once you have that new file going</h2>
-            <h3>Message: {message}</h3>
+            <p>
+                This will contain the welcome screen and login page, it will be split with the login on the right hand side.
+            </p>
         </div>
     )
 }

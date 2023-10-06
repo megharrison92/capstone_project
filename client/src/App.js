@@ -1,24 +1,45 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Router } from 'react-router-dom';
-import NavBar from './components/NavBar';
-import Home from './components/Home';
-import GetFortune from './components/GetFortune';
-import Game from './components/Game';
-import History from './components/History';
-import AccountInfo from './components/AccountInfo';
+import { Route, Router } from 'react-router-dom';
+import NavBar from './NavBar';
+import Home from './Home';
+import GetFortune from './GetFortune';
+import Game from './Game';
+import History from './History';
+import AccountInfo from './AccountInfo';
 
 
 function App() {
+  
+  const [message, setMessage] = useState('');
+  
+  useEffect(() => {
+    fetchMessage();
+  }, []);
+  
+  const fetchMessage = () => {
+    fetch('http://localhost:5555')
+      .then(r => r.text())
+      .then(message => setMessage(message))
+  }
+
   return (
       <div>
         <NavBar />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/get_fortune" element={<GetFortune />} />
-            <Route exact path="/game" element={<Game />} />
-            <Route exact path="/history" element={<History />} />
-            <Route exact path="/account_info" element={<AccountInfo />} />
-          </Routes>
+        <Route exact path= '/'>
+          <Home />
+        </Route>
+        <Route exact path='/get_fortune'>
+          <GetFortune />
+        </Route>
+        <Route exact path='/game'>
+          <Game />
+        </Route>
+        <Route exact path='/history'>
+          <History/>
+        </Route>
+        <Route exact path='/account_info'>
+          <AccountInfo />
+        </Route>
       </div>
   );
 }
