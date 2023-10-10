@@ -2,18 +2,18 @@ import { useState } from 'react';
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 
-const FlipCard = () => {
-    const [ isFlipped, setIsFlipped ] = useState(false);
+// const FlipCard = () => {
+//     const [ isFlipped, setIsFlipped ] = useState(false);
 
-    const handleFlip = () => {
-        setIsFlipped(!isFlipped);
-    }
-}
-
+//     const handleFlip = () => {
+//         setIsFlipped(!isFlipped);
+//     }
+// }
+//className={`flip-card ${isFlipped ? 'flipped' : ""}`}
 
 function LoginRegisterCard() {
     return(
-        <div className={`flip-card ${isFlipped ? 'flipped' : ""}`}>
+        <div >
             <div className="card-inner">
                 <div className="card-front">
                     <LoginForm />

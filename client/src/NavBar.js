@@ -6,7 +6,7 @@ import './index.css';
 const Navbar = () => {
   return (
     <header>
-        <nav className='navbar'>
+        <nav className='navbar-styles'>
             <div className='navlinks'>
                 <ul>
                     <li><NavLink to="/">Home</NavLink></li>
