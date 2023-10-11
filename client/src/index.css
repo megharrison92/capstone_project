@@ -224,3 +224,44 @@ transform: rotateY(180deg);
   border-radius: 5px;
   text-align: center;
 }
+
+/*game*/
+/* Style for the game container */
+.game-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+/* Style for the game panel (embedded game) */
+.game-panel {
+  width: 70%; /* Adjust the width as needed */
+  /* You can add styles for the embedded game here */
+}
+
+/* Style for the score panel */
+.score-panel {
+  width: 30%; /* Adjust the width as needed */
+  background-color: #f0f0f0; /* Add your preferred background color */
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the top scores list */
+.score-panel h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Style for the top scores list (when the user is not logged in) */
+.score-panel p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Style for individual top scores */
+.score-panel li {
+  list-style: none;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}

@@ -1,14 +1,47 @@
+import { useState, useEffect } from 'react';
+
 function History() {
 
+    const [ userHistory, setUserHistory] = useState([]);
+    const [ isLoggedIn, setIsLoggedIn ] = useState(true);
+
+    useEffect( () => {
+        if (isLoggedIn) {
+            //this is to fetch the user history
+            fetch('URL')
+                .then(response => response.json())
+                .then(data => setUserHistory(data))
+                .catch((error) => console.error('Error fetching history:', error));
+        }
+    }, [ isLoggedIn] );
+    
     return (
         <div>
-            <h2>Test to see the history page!</h2>
-                <p>
-                    This page will show all user questions and answers.
-                    You will also see any comments or likes of responses.
-                </p>
+            <h2>User History</h2>
+            { isLoggedIn ? ( userHistory.length > 0 ?(
+                <ul>
+                    { userHistory.map(( item, index) => (
+                        <li key={index}>
+                            <strong>Question:</strong> { item.question }<br />
+                            <strong>Response:</strong> { item.response }<br />
+                            <strong>Liked:</strong>{ item.liked ? 'Yes' : 'No' }<br />
+                            <strong>Comments:</strong>
+                            <ul>
+                                {item.comments.map((comment, commentIndex) => (
+                                    <li key={ commentIndex }>{comment}</li>
+                                ))}
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No history available.</p>
+            )
+        ) : (
+            <p>Please log in to view your hostory.</p>
+        )}
         </div>
-    )
+    );
 }
     
     
