@@ -18,7 +18,7 @@ function Home() {
     const greeting = getRandomGreeting();
 
     return (
-        <div>
+        <div className='home-container'>
             <h2>{ greeting }</h2>
             <LoginRegisterCard />
         </div>

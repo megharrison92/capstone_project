@@ -56,8 +56,50 @@ code {
   color: #007bff;
 }
 
-/*Login/Register Card*/
+/*Home screen styles*/
 
+
+/*Login/Register Card*/
+.card-inner {
+  position: relative;
+  width: 300px; 
+  height: 400px; 
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+  background-color: #f0f0f0; 
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background-color: #f0f0f0; 
+  opacity: 1;
+}
+
+.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.flipped .card-front {
+  opacity: 0;
+}
+
+.flipped .card-back {
+  opacity: 1;
+}
 
 
 /*AccountInfo and Profile card*/
@@ -120,4 +162,65 @@ code {
 
 .profile-card-back {
 transform: rotateY(180deg);
+}
+
+/* Get fortune*/
+.get-fortune-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.response-container img {
+  cursor: pointer;
+  width: 100px; 
+  height: auto;
+}
+
+.response-container p {
+  text-align: center;
+}
+
+.response-container button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.response-container button.liked {
+  background-color: #ff5733;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.comments-container textarea {
+  width: 100%;
+  padding: 10px;
+}
+
+.comments-container button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.comment {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
 }

@@ -15,12 +15,6 @@ function LoginForm() {
                 />
                 <button type='button'>Login</button>
             </form>
-            <p>
-                Don't have an account?
-                <span className='link'>
-                    Register here!
-                </span>
-            </p>
         </div>
     )
 }

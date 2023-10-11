@@ -23,12 +23,6 @@ function RegisterForm() {
                 />
                 <button type='button'>Register</button>
             </form>
-            <p>
-                Have an account?
-                <span className='link'>
-                    Login here!
-                </span>
-            </p>
         </div>
     )
 }
