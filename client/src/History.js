@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { UserContext } from './context/user.js'
+
 
 function History() {
 
     const [ userHistory, setUserHistory] = useState([]);
     const [ isLoggedIn, setIsLoggedIn ] = useState(true);
+
+    const { user } = useContext(UserContext)
 
     useEffect( () => {
         if (isLoggedIn) {

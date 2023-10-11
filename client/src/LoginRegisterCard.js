@@ -5,7 +5,7 @@ import RegisterForm from "./RegisterForm";
 
 function LoginRegisterCard() {
     
-    const [ isFlipped, setIsFlipped ] = useState(false);
+    const [ isFlipped, setIsFlipped ] = useState(true);
 
     const handleFlip = () => {
         setIsFlipped(!isFlipped);
@@ -13,8 +13,9 @@ function LoginRegisterCard() {
     
     return(
         <div >
-            <div className={`card-inner ${isFlipped ? 'flipped' : '' }`}>
-                <div className="card-front" onClick={ handleFlip }>
+            <div className='card-inner'>
+                {isFlipped ? 
+                <div className="card-front" >
                     <LoginForm />
                     <p>
                         Don't have an account?
@@ -23,7 +24,8 @@ function LoginRegisterCard() {
                         </span>
                     </p>
                 </div>
-                <div className="card-back" onClick={ handleFlip }>
+                :
+                <div className="card-front" >
                     <RegisterForm />
                     <p>
                         Have an account?
@@ -31,7 +33,7 @@ function LoginRegisterCard() {
                             Login here!
                         </span>
                     </p>
-                </div>
+                </div>}
             </div>
         </div>
     );

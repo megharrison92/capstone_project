@@ -1,3 +1,4 @@
+import { UserProvider } from './context/user';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './Home';
@@ -8,9 +9,11 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <UserProvider >
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </UserProvider >
 );
 
 // If you want to start measuring performance in your app, pass a function
