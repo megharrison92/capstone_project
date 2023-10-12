@@ -9,13 +9,19 @@ test_font = pygame.font.Font('graphics/Pixeltype.ttf', 50)
 
 background_surface = pygame.image.load('graphics/background.png').convert_alpha()
 ground_surface = pygame.image.load('graphics/ground.png').convert_alpha()
-text_surface = test_font.render('Score', False, 'White')
 
+score_surface = test_font.render('Score', False, 'White')
+score_container = score_surface.get_rect(center = (400, 50))
+
+#player 
 player_surface = pygame.image.load('graphics/player_walk_1.png').convert_alpha()
+player_container = player_surface.get_rect( topleft = (80, 225))
+player_gravity = 0
 
-
+#obstacles
 tarot_surface = pygame.image.load('graphics/tarot_1.png').convert_alpha()
-tarot_x_position = 600
+tarot_container = player_surface.get_rect( bottomleft = (600, 360))
+
 
 
 while True:
@@ -23,17 +29,30 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+    
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_SPACE]:
+        print('jump')
 
     Screen.blit(background_surface, (0,0))
     Screen.blit(ground_surface, (0,0))
-    Screen.blit(text_surface, (300, 50))
+    Screen.blit(score_surface, score_container)
 
-    tarot_x_position -= 4
-    if tarot_x_position < -100:
-        tarot_x_position = 800
-    Screen.blit(tarot_surface, (tarot_x_position, 250))
+    #obstacles
+    tarot_container.x -= 4
+    if tarot_container.right <= 0:
+        tarot_container.left = 800
+    Screen.blit(tarot_surface, tarot_container)
 
-    Screen.blit(player_surface, (80, 225))
+    #player
+    player_container.left +=  1
+    player_gravity += 1
+    player_container.y =+ player_gravity
+    Screen.blit(player_surface, player_container)
+
+    # player_container.colliderect(tarot_container)
+    # if player_container.colliderect(tarot_container):
+    #     print('collision')
 
     pygame.display.update()
     clock.tick(60)
