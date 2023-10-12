@@ -13,20 +13,20 @@ from config import app, api, db
 def hello():
     return '<h1>Capstone Project</h1>'
 
-# class Users(Resource):
-#     def get(self):
-#         q = [user.to_dict(rules = ()) for user in User.query.all()]
-#         response = make_response(q, 200)
-#         return response
+class Users(Resource):
+    def get(self):
+        q = [user.to_dict(rules = ()) for user in User.query.all()]
+        response = make_response(q, 200)
+        return response
     
-#     def post(self):
-#         data = request.get_json()
-#         new_user = User(username=data['username'], password=data['password'])
-#         db.session.add(new_user)
-#         db.session.commit()
-#         return make_response(new_user.to_dict(), 200)
+    def post(self):
+        data = request.get_json()
+        new_user = User(username=data['username'], password=data['password'])
+        db.session.add(new_user)
+        db.session.commit()
+        return make_response(new_user.to_dict(), 200)
     
-# api.add_resource( Users, '/users' )
+api.add_resource( Users, '/users' )
 
 #double check this one there is an issue with the route!
 
