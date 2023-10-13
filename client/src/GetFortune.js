@@ -67,7 +67,7 @@ function GetFortune() {
                 </div>
                 <div className='response-container'>
                     <img 
-                        src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw9HRenNPG1JoV7fM5xkk3EBYjzDQxDSkI2vZiVoDkTEOdtelhictDHVArO7dqItnZKMQ&usqp=CAU'
+                        src='https://www.pngall.com/wp-content/uploads/15/Crystal-Ball-PNG-HD-Image.png'
                         alt="crystal Ball"
                         onClick={ () => setResponse(randomResponse()) }
                     />

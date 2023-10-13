@@ -12,6 +12,16 @@ code {
     monospace;
 }
 
+body {
+  background-image: url('https://i.pinimg.com/474x/d8/7b/b5/d87bb578911ed5ef1955b11c0f5c2e49.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+}
+
+
 /*Nav styles*/
 .navbar-styles {
   justify-content: center;
@@ -60,62 +70,7 @@ code {
 
 
 /*Login/Register Card*/
-.login-container {
-  margin: auto;
-  background: #3f4634;
-  max-width: 350px;
-  height: 400px;
-  padding: 10px;
-  border-radius: 4px;
-  border: .5px solid;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  text-align: center;
-  font-family: Arial;
-  font-size: 18px;
-}
-.login-form {
-  display: inline-block;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  border-radius: 4px;
-  margin: 10px 0;
-}
-.login-form {
-  display: inline-block;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  border-radius: 4px;
-  margin: 10px 0;
-}
-.login-form label {
-  width: 250px;
-  display: inline-block;
-  text-align: right;
-  padding-top: 7px;
-  padding-bottom: 12px;
-  font-size: 16px;
-  font-family: Arial;
-}
-.login-form button {
-  width: 250px;
-  height: 30px;
-  margin: 40 px 0;
-  margin-left: 30px;
-}
-.register-link {
-  padding-top: 20px;
-  margin-top: 25px;
-  background: #5f694e; 
-}
-
-.register-link a:hover {
-  background-color: #ddd;
-  color: black;
-}
-/* .card-inner {
+.card-inner {
   position: relative;
   width: 300px; 
   height: 400px; 
@@ -154,18 +109,17 @@ code {
 
 .flipped .card-back {
   opacity: 1;
-} */
+}
 
 
 /*AccountInfo and Profile card*/
-.profile-card {
+/* .profile-card {
   border: 1px solid #ccc;
   padding: 20px;
   margin: 20px;
   max-width: 300px;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  /* transition: all 0.3s ease; */
   height: 200px;
   perspective: 1000px;
   position: relative;
@@ -217,6 +171,45 @@ code {
 
 .profile-card-back {
 transform: rotateY(180deg);
+} */
+
+.profile-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+}
+
+.profile-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* .profile-card:hover .profile-card-inner {
+  transform: rotateY(180deg);
+} */
+
+.profile-card-front, .profile-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.profile-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.profile-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
 }
 
 /* Get fortune*/
@@ -231,10 +224,12 @@ transform: rotateY(180deg);
   cursor: pointer;
   width: 100px; 
   height: auto;
+  align-items: center;
 }
 
 .response-container p {
   text-align: center;
+  color:white;
 }
 
 .response-container button {
@@ -281,45 +276,58 @@ transform: rotateY(180deg);
 }
 
 /*game*/
-/* Style for the game container */
 .game-container {
   display: flex;
   justify-content: space-between;
   margin: 20px;
+  align-content: center;
 }
 
-/* Style for the game panel (embedded game) */
-.game-panel {
-  width: 70%; /* Adjust the width as needed */
-  /* You can add styles for the embedded game here */
+/* .game-panel {
+  width: 70%; 
+  background-color: black;
+} */
+
+.game-message {
+  color: whitesmoke;
+  text-align: center;
 }
 
-/* Style for the score panel */
-.score-panel {
-  width: 30%; /* Adjust the width as needed */
-  background-color: #f0f0f0; /* Add your preferred background color */
+.game-maintaince {
+  color: black;
+  background-color: white;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  align-content: center;
+}
+
+/* .score-panel {
+  width: 30%; 
+  background-color: #f0f0f0; 
   padding: 20px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
+} */
 
-/* Style for the top scores list */
-.score-panel h2 {
+/* .score-panel h2 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
-/* Style for the top scores list (when the user is not logged in) */
 .score-panel p {
   font-size: 1rem;
   color: #666;
-}
+} */
 
-/* Style for individual top scores */
-.score-panel li {
+/* .score-panel li {
   list-style: none;
   font-size: 1rem;
   margin-bottom: 5px;
-}
+} */
+
 
 /* History Page Styles */
 
@@ -331,6 +339,7 @@ transform: rotateY(180deg);
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 .history-title {

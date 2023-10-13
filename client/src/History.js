@@ -20,7 +20,7 @@ function History() {
     }, [ isLoggedIn] );
     
     return (
-        <div>
+        <div className='history-container'>
             <h2>User History</h2>
             { isLoggedIn ? ( userHistory.length > 0 ?(
                 <ul>
@@ -42,7 +42,7 @@ function History() {
                 <p>No history available.</p>
             )
         ) : (
-            <p>Please log in to view your hostory.</p>
+            <p>Please log in to view your history.</p>
         )}
         </div>
     );

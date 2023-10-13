@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 # Local imports
 from config import app, api, db
 # Add your model imports
-#from models import User, Prediction, Game, Comment
+from models import User, Prediction, Game, Comment
 
 @app.route('/')
 def hello():
@@ -21,14 +21,63 @@ class Users(Resource):
     
     def post(self):
         data = request.get_json()
-        new_user = User(username=data['username'], password=data['password'])
+        new_user = User(username=data['username'], user_password=data['password'], first_name=data['firstname'], last_name=data['lastname'])
         db.session.add(new_user)
         db.session.commit()
         return make_response(new_user.to_dict(), 200)
     
 api.add_resource( Users, '/users' )
 
-#double check this one there is an issue with the route!
+class UsersById(Resource):
+    def get(self, id):
+        user = User.query.filter_by( id = id ).first()
+        if not user:
+            return make_response({'error': 'User not found'}, 404)
+        return make_response(user.to_dict())
+    
+    def patch(self, id):
+        user = User.query.filter_by( id = id ).first()
+        #cipdb.set_trace()
+        if not user:
+            response = make_response({'error': 'User not found'}, 404)
+            return response
+        
+        data = request.get_json()
+        #ipdb.set_trace()
+        for attr in data:
+            try:
+                setattr(user, attr, data[attr])
+            except ValueError as e:
+                response = make_response({'errors': str(e)}, 400)
+                return response
+        
+        db.session.commit()
+
+        user_dict = user.to_dict()
+        response = make_response(user_dict, 202)
+        return response
+    
+    def delete(self, id):
+        user = User.query.filter_by( id = id ).first()
+        if not user:
+            return make_response({'error': 'User not found'}, 404)
+        
+        db.session.delete(user)
+        db.session.commit()
+        return make_response(', 204')
+        
+
+api.add_resource( UsersById, '/users/<int:id>')
+
+class Login(Resource):
+    def post(self):
+        data = request.get_json()
+        username = data['username']
+        user = User.query.filter_by(username = username).first()
+        return make_response(user.to_dict(), 200)
+        #ipdb.set_trace()
+
+api.add_resource( Login, '/login')
 
 # class UsersById(Resource):
 #     def get(self):
